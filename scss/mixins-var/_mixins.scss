@@ -1,0 +1,182 @@
+//------------------------------------------------------------------------------
+// Main sprite
+
+@mixin sprite($x, $y, $bg-color: transparent, $sprite: '../images/sprite.png') {
+  background: $bg-color url($sprite) no-repeat $x $y;
+}
+
+//------------------------------------------------------------------------------
+// Font resizing
+
+@mixin font-size($size-value: 14) {
+  //  font-size: ($size-value) + px;
+  font-size: ($size-value / 14) + rem;
+}
+
+//------------------------------------------------------------------------------
+// Links
+@mixin links($color: $link, $hover: $link-hover, $dec: false) {
+  color: $color;
+
+  @if $dec == true {
+    text-decoration: underline;
+
+    &:hover {
+      color: $hover;
+    }
+  }
+
+  @if $dec == false {
+    text-decoration: none;
+
+    &:hover {
+      color: $hover;
+    }
+  }
+}
+
+//------------------------------------------------------------------------------
+// Input fields
+
+@mixin inputs($width: auto, $height: auto, $border: none, $color: $black) {
+  height: $height;
+  width: $width;
+  border: $border;
+  background-color: $white;
+  padding: 0 5px;
+  color: $color;
+}
+
+//------------------------------------------------------------------------------
+// Submit Button
+
+@mixin submit($width: auto, $height: auto, $border: none, $color: #fff) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  border: $border;
+  color: $color;
+  padding: 5px;
+}
+
+//------------------------------------------------------------------------------
+// CSS3 Animation
+@mixin transition($property: all, $duration: .15s, $ease: ease-out) {
+  transition: $property $duration $ease;
+}
+
+@mixin transition-delay($duration: .2s) {
+  transition-delay: $duration;
+}
+
+@mixin transform($property: translate3d(0, 0, 0)) {
+  transform: $property;
+}
+
+@mixin transform-style($property: preserve-3d) {
+  transform-style: $property;
+}
+
+//Example usage:
+//@include animation(10s, 5s, changecolour)
+
+@mixin animation($delay, $duration, $animation) {
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards; // this prevents the animation from restarting!
+}
+
+//------------------------------------------------------------------------------
+// Abstract classes
+%border-bottom {
+  border-bottom: 1px solid $gray;
+}
+
+%no-border {
+  border: 0 none;
+}
+
+%no-padding {
+  padding: 0;
+}
+
+%no-margin {
+  margin: 0;
+}
+
+%centered {
+  text-align: center;
+}
+
+//------------------------------------------------------------------------------
+// Placeholder
+@mixin placeholder($color) {
+  .placeholder {
+    opacity: 1;
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    color: $color;
+  }
+
+  &::-webkit-input-placeholder {
+    opacity: 1;
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    opacity: 1;
+    color: $color;
+  }
+}
+
+// appearance for browsers
+@mixin appearance($value: none) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  -ms-appearance: $value;
+  //  appearance: $value;
+}
+
+// Responsive video
+%respondvideo {
+  position: relative;
+  padding-bottom: 56.25%; // 16/9 ratio
+  height: 0 !important;
+  overflow: hidden;
+  display: block;
+
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Clear float.
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+// Remove select effect for content.
+%no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

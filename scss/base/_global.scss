@@ -1,0 +1,45 @@
+//------------------------------------------------------------------------------
+// Website global styles.
+html * {
+  box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------
+// Make all image are fluid
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+// -----------------------------------------------------------------------------
+// Make white fill for webkit browsers
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px $white inset;
+}
+
+hr {
+  border-bottom: 1px solid $gray;
+  border-top: 0 none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen-readers.
+ *
+ * Used for information required for screen-reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides.
+ */
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}

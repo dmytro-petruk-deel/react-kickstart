@@ -1,0 +1,51 @@
+$susy: (
+  flow: ltr, // ltr | rtl
+  output: float, // float | isolate
+  math: fluid, // fluid | static (requires column-width)
+  container: 1180px, // length or % | auto
+  container-position: center, // left | center | right | <length> [*2] (grid padding)
+  last-flow: to,
+  columns: 12,
+  gutters: .1,
+  gutter-position: inside, // before | after | split | inside | inside-static (requires column-width)
+  global-box-sizing: content-box, // content-box | border-box (affects inside/inside-static)
+  debug: (
+    image: hide,
+    color: rgba(#54bcff, .5),
+    output: background,
+    toggle: bottom right,
+  ),
+);
+
+html, body {
+  height: 100%;
+  font-size: 14px;
+}
+
+body {
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+//------------------------------------------------------------------------------
+// Site wrapper. min-height use to keep footer in the bottom of page.
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.main-content {
+  padding-bottom: 250px;
+}
+
+//------------------------------------------------------------------------------
+// .max-width is define maximum width for content.
+.max-width {
+  @include container;
+  box-sizing: border-box;
+  padding: 0 20px;
+}

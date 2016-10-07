@@ -1,0 +1,9 @@
+{
+  "name": "react-kickstart",
+  "version": "1.0.0",
+  "dependencies": {
+    "susy": "^2.2.2"
+  },
+  "appPath": "web",
+  "moduleName": "Module Name"
+}
