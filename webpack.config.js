@@ -1,7 +1,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './js/main.js',
+  entry: './js/app.js',
   output: {
     path: './',
     filename: 'index.js'
@@ -12,6 +12,9 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.json$/,
+        loader: 'json'},
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
